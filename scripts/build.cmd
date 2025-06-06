@@ -1,4 +1,5 @@
 pushd %~dp0
+call config.cmd
 cd ..
 if "%MACHINE_NAME%" equ "" (
   echo The MACHINE_NAME environment variable needs to be set.
