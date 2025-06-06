@@ -14,7 +14,11 @@ This template repository offers a one-step build process for software that can r
 
 ## Design
 
-## Podman Instead of Docker
+### Shell Scripts for Each Platform
+
+This project provides shell scripts for each supported platform, so that developers can just run a script to get started. Therefore, each supported platform must offer a shell script interpreter such as `bash` or `cmd`, as well as a way to download external software.
+
+### Podman Instead of Docker
 
 This repository uses Podman to manage containers, because Podman tends to be more reliable than Docker:
 
@@ -27,4 +31,10 @@ Here is an example of a Docker pipe permission error:
 ![Docker Desktop error dialog](docs/docker-error.png)
 
 Notice that the dialog offers no way to circumvent or fix this error. Clicking **Reset to factory defaults** doesn't fix the problem, for example. [This Github issue](https://github.com/docker/for-win/issues/13663) is still open as of 2025-06-06, and is full of suggestions for fixes to try rather than concrete, reliable solutions. This issue doesn't mean that Docker is bad software, but rather that problems in complex software can be show-stoppers if all of the development environments on a given machine rely on that software. By using Podman, we can reduce this risk.
+
+### Future Work
+
+  - Remove hard-coded paths from some configuration files.
+  - Improve error handling on shell scripts.
+  - Add shell scripts for Linux.
 
