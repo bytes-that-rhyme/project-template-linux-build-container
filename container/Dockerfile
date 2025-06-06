@@ -1,3 +1,5 @@
-FROM archlinux:base-20250223.0.312761
+# Use an Ubuntu LTS release for stability
+FROM ubuntu:noble-20250415.1
 WORKDIR /root
-RUN pacman -Sy --noconfirm base-devel gcc gdb git vim tmux less ripgrep && pacman -Scc --noconfirm
+# Add all needed packages here.
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential git gdb curl
