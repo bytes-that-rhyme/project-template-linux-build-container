@@ -6,16 +6,14 @@ echo Project
 echo.
 
 echo Setting up...
-call scripts\setup.cmd
+call scripts\setup.cmd && cls
 @echo off
 echo.
 
 echo Commands:
 echo.
 echo build    Builds the image
-echo sh       Opens a Bash shell
-echo code     Launch Visual Studio Code with dev container (not working right now)
-echo attach   Attaches to existing container
+echo sh       Opens a Bash shell using the image
 echo.
 
 cmd /K
