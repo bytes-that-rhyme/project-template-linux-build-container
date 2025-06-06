@@ -12,9 +12,20 @@ This template repository offers a one-step build process for software that can r
   4. Type `build` to build your container image.
   5. Type `sh` to create a temporary container based on your image, and run a shell inside of it. The container will be deleted once you exit the shell.
 
+### Your Shell Environment
+
+ - Your project's `src` directory is mounted at the `/src` directory in your container.
+ - Your current directory will be `/src` inside the shell.
+
 ### Opening Multiple Shells
 
 The `sh` command will automatically reuse any existing running container if possible, enabling you to run multiple shells in the same container. The container ID is saved in the `container.cid` file in the root of this repository. Note that exiting the first shell will close your container, forcing the other shells to exit.
+
+### Configuration
+
+ - Edit `scripts\config.cmd` to change the development directory mounted in the container, as well as the machine name in Podman.
+ - Edit `container\.bash_profile` to set the current directory and other Bash environment settings.
+ - Edit `container\Dockerfile` to configure the development container.
 
 ## Design
 
