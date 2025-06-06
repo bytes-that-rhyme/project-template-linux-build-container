@@ -26,5 +26,5 @@ Here is an example of a Docker pipe permission error:
 
 ![Docker Desktop error dialog](docs/docker-error.png)
 
-Notice that the dialog offers no way to circumvent or fix this error. [This Github issue](https://github.com/docker/for-win/issues/13663) is still open as of 2025-06-06, and is full of suggestions for fixes to try rather than concrete, reliable solutions. This doesn't mean that Docker is bad software, but rather that problems in complex software can be show-stoppers if all of the development environments on a given machine rely on that software.
+Notice that the dialog offers no way to circumvent or fix this error. Clicking **Reset to factory defaults** doesn't fix the problem, for example. [This Github issue](https://github.com/docker/for-win/issues/13663) is still open as of 2025-06-06, and is full of suggestions for fixes to try rather than concrete, reliable solutions. This issue doesn't mean that Docker is bad software, but rather that problems in complex software can be show-stoppers if all of the development environments on a given machine rely on that software. By using Podman, we can reduce this risk.
 
