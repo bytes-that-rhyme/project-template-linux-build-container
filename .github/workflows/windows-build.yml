@@ -1,0 +1,25 @@
+name: Windows Batch Build and Run
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  windows-build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run build command
+      run: |
+        echo build>input.txt
+        echo sh>>input.txt
+        echo echo "Working directory is $(pwd)"; exit>>input.txt
+        call shell.cmd < input.txt | find "Working directory is /src"
+      shell: cmd
+
