@@ -12,6 +12,10 @@ This template repository offers a one-step build process for software that can r
   4. Type `build` to build your container image.
   5. Type `sh` to create a temporary container based on your image, and run a shell inside of it. The container will be deleted once you exit the shell.
 
+### Opening Multiple Shells
+
+The `sh` command will automatically reuse any existing running container if possible, enabling you to run multiple shells in the same container. The container ID is saved in the `container.cid` file in the root of this repository. Note that exiting the first shell will close your container, forcing the other shells to exit.
+
 ## Design
 
 ### Shell Scripts for Each Platform
