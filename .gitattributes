@@ -1,0 +1,4 @@
+* text=auto
+.bash_profile text eol=lf
+input.txt text eol=lf
+Dockerfile text eol=lf
