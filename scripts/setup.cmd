@@ -1,7 +1,7 @@
 @echo on
 pushd "%~dp0..\" || exit /b 1
 set BASE=%CD%
-call config.cmd
+call scripts\config.cmd
 set CONTAINERS_STORAGE_DIR=%BASE%\podman-storage
 set CONTAINERS_STORAGE_CONF=%BASE%\storage.conf
 
