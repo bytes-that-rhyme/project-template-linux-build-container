@@ -17,5 +17,5 @@ jobs:
 
     - name: Run build command
       shell: cmd
-      run: .\test-build.cmd
+      run: .\.github\workflows\test-build.cmd
 
