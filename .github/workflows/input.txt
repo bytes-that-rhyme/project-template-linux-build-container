@@ -1,3 +1,2 @@
-call sh || exit /b 1
 echo $(pwd)
 if [[ "$(pwd)" == "/src" ]]; then logout; else logout 1; fi
