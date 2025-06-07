@@ -42,7 +42,7 @@ if not exist podman-5.4.0 (
   mkdir podman_temp || exit /b 1
   tar -C podman_temp -xzf podman.zip || exit /b 1
   move podman_temp/podman-5.4.0 . || exit /b 1
-  rmdir podman_temp
+  rmdir podman_temp || exit /b 1
   )
 
 set PATH=%BASE%\deps\podman-5.4.0\usr\bin;%PATH%
@@ -52,13 +52,22 @@ where podman | find "%BASE%" > NUL 2> NUL || (
   exit /b 1
   )
 
-podman machine init
-podman machine start
-
 popd || exit /b 1 :: leave %BASE%\deps dir
 endlocal
 
 popd || exit /b 1 :: leave %BASE% dir
 
 set PATH=%BASE%\deps\podman-5.4.0\usr\bin;%BASE%\scripts;%PATH%
+
+:: Make sure the Podman virtual machine is initialized.
+podman machine ls -q -n | find "podman-machine-default*" >NUL 2>NUL || (
+  echo Initializing Podman virtual machine...
+  podman machine init podman-machine-default || exit /b 1
+)
+
+:: Make sure the Podman virtual machine is running.
+podman machine inspect --format "{{.State}}" podman-machine-default | find "running" >NUL 2>NUL || (
+  echo Starting Podman virtual machine...
+  podman machine start || exit /b 1
+)
 
