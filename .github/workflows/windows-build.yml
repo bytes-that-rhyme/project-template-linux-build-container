@@ -18,8 +18,9 @@ jobs:
     - name: Run build command
       run: |
         echo build>input.txt
-        echo sh>>input.txt
+        echo sh^>result.txt>>input.txt
         echo echo "Working directory is $(pwd)"; exit>>input.txt
-        call shell.cmd < input.txt | find "Working directory is /src"
+        call shell.cmd < input.txt
+        find "Working directory is /src" result.txt
       shell: cmd
 
